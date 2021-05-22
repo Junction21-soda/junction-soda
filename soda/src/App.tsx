@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from 'styled-components';
+import Template from './components/Template';
+function App(){
+  const GlobalStyle = createGlobalStyle`
+  body{
+    background: #e9ecef;
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    font-family: 'Noto Sans','Work Sans', sans-serif;
+  }`
+  return(<>
+  <GlobalStyle></GlobalStyle>
+  <Template></Template>
+  </>)
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
 }
 
 export default App;
