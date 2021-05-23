@@ -9,7 +9,7 @@ import alertfilled from "./alertfilled.png";
 
 const InfoContainer = styled.div`
   width: 360px;
-  height: 346px;
+  height: auto;
   background-color: white;
   border-radius: 12px 12px 0px 0px;
   position: absolute;
@@ -85,7 +85,7 @@ const PrimaryBtn = styled.button`
   border-radius: 8px;
   background-color: white;
   color: black;
-  cursor:pointer
+  cursor:pointer;
 `;
 const SecondaryBtn = styled.button`
   
@@ -95,7 +95,8 @@ const SecondaryBtn = styled.button`
   cursor:pointer;
   border-radius: 8px;
   color: white;
-  border:none
+  border:none;
+  margin-bottom:16px;
 `;
 
 const BtnWrapper = styled.div`
@@ -106,7 +107,23 @@ const BtnWrapper = styled.div`
 const PrimaryBtnWrapper = styled.div`
 margin-bottom:16px;
 `
+
+const TipInput = styled.input`
+width: 328px;
+height: 42px;
+border: 1px solid ${Palette.Grey3};
+box-sizing: border-box;
+border-radius: 8px;
+autofocus:true;
+margin-bottom:16px;
+`
 function ArrivedAtDest() {
+  const [isTipClicked, setTip] = useState(false);
+
+  function giveTip(){
+    setTip(true);
+  }
+
   return (
     <InfoContainer>
       <TimeText>8:49AM arrived</TimeText>
@@ -140,11 +157,21 @@ function ArrivedAtDest() {
 
       <ColumnWrapper>
       <BtnWrapper>
-        <PrimaryBtnWrapper>
-        <PrimaryBtn>
-          <BtnText>Tip jar</BtnText>
-        </PrimaryBtn>
-        </PrimaryBtnWrapper>
+        {!isTipClicked &&
+          <PrimaryBtnWrapper>
+          <PrimaryBtn onClick={giveTip}>
+            <BtnText>Tip jar</BtnText>
+          </PrimaryBtn>
+          </PrimaryBtnWrapper>}
+      
+          {isTipClicked &&
+          <>
+          <TipInput placeholder="₩"></TipInput>
+          <PrimaryBtnWrapper>
+          <PrimaryBtn>
+            <BtnText>Give Tip</BtnText>
+          </PrimaryBtn>
+          </PrimaryBtnWrapper></>}
        
         <SecondaryBtn>
           <BtnText>Done</BtnText>

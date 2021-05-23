@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-//import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 
 import { createGlobalStyle } from 'styled-components';
@@ -13,11 +13,11 @@ body{
 }`
 
 render(
-  //<BrowserRouter>
+  <BrowserRouter>
   <div>
     <GlobalStyle />
     <App></App>
     </div>,
- // </BrowserRouter>,
+  </BrowserRouter>,
   document.getElementById('root'),
 );

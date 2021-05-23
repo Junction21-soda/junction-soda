@@ -6,7 +6,8 @@ import alertfilled from "./alertfilled.png";
 import { FaPhone } from "react-icons/fa";
 import DriverInfo from "./shared/DriverInfo";
 import SafetyInfo from "./shared/SafetyInfo";
-
+import { Link } from "react-router-dom";
+import { useHistory } from 'react-router';
 const InfoContainer = styled.div`
   width: 360px;
   height: 250px;
@@ -93,14 +94,23 @@ const IconWrapper = styled.div`
 `;
 
 function DrivingInfo() {
+
+  const history = useHistory();
+
+  const handleOnClick = (e:any) => {
+    e.preventDefault(); //prevent transition
+    history.push('/arrived');
+       
+};
+
   return (
     <InfoContainer>
       <TimeText>2 min away..</TimeText>
       <Line></Line>
       <DepartureText>Departure</DepartureText>
       <LocationWrapper>
-        <DepartureDot></DepartureDot>
-        <LocationText>Main gate of Gunyoung castvill</LocationText>
+        <DepartureDot ></DepartureDot>
+        <LocationText onClick={handleOnClick}>Main gate of Gunyoung castvill</LocationText>
       </LocationWrapper>
 
       <DepartureText>Destination</DepartureText>
@@ -111,7 +121,9 @@ function DrivingInfo() {
       <Line></Line>
 
       <LocationWrapper>
+        <Link to="/driverinfo">
         <img src={Haneulmom} alt="user" style={userPicStyle}></img>
+        </Link>
         <div style={{ flexDirection: "column" }}>
           
             <div style={{marginTop: '15px'}}>

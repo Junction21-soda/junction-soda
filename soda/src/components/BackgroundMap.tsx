@@ -3,6 +3,7 @@ import GoogleMapReact from "google-map-react";
 import styled, { css } from "styled-components";
 import Marker from "./Marker/Marker";
 import StartMarker from "./Marker/StartMarker";
+import Car from "./Marker/Car";
 const MapsWrapper = styled.div`
   z-index: auto;
 `;
@@ -14,7 +15,8 @@ const Wrapper = styled.div`
 
 const BackgroundMap = (props: any) => {
 
-  const [center, setCenter] = useState({ lat: 37.4988266, lng: 127.0586583 });
+
+  const [center, setCenter] = useState({ lat: 37.502776, lng:127.0625817 });
   const [zoom, setZoom] = useState(16);
   return (
    
@@ -25,9 +27,10 @@ const BackgroundMap = (props: any) => {
           defaultCenter={center}
           defaultZoom={zoom}
         >
-{/* 37.4999974,127.0562209 */}
-          <StartMarker lat={37.5032941} lng={127.0633241}></StartMarker>
-          <Marker lat = {37.5032983} lng={127.0611301}></Marker>
+
+          <StartMarker lat = {37.5032983} lng={127.0611301}></StartMarker>
+          <Car lat={37.502776} lng={127.0625817}></Car>
+          <Marker lat={37.5032941} lng={127.0633241}></Marker>
         </GoogleMapReact>
       </Wrapper>
     </MapsWrapper>

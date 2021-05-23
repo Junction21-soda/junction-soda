@@ -4,7 +4,7 @@ import BackgroundMap from './BackgroundMap';
 import ArrivedAtDest from './Info/ArrivedAtDest';
 import CheckDriverInfo from './Info/CheckDriverInfo';
 import DrivingInfo from './Info/DrivingInfo';
-
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 const TemplateBlock = styled.div`
   width: 360px;
@@ -26,9 +26,14 @@ function Template(){
     <div>
       <TemplateBlock>
       <BackgroundMap></BackgroundMap>
+      <Switch>
+      <Route exact path="/arrived" component={ArrivedAtDest}></Route>
+      <Route exact path="/driverinfo" component={CheckDriverInfo}></Route>
+      <Route exact path="/" component={DrivingInfo}></Route>
+      </Switch>
       {/* <DrivingInfo></DrivingInfo> */}
       {/* <CheckDriverInfo></CheckDriverInfo> */}
-      <ArrivedAtDest></ArrivedAtDest>
+      {/* <ArrivedAtDest></ArrivedAtDest> */}
         
       </TemplateBlock>
     </div>
