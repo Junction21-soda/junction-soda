@@ -97,10 +97,9 @@ function DrivingInfo() {
 
   const history = useHistory();
 
-  const handleOnClick = (e:any) => {
+  function handleOnClick(e:any){
     e.preventDefault(); //prevent transition
     history.push('/arrived');
-       
 };
 
   return (
