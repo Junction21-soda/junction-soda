@@ -23,7 +23,7 @@ const BackgroundMap = (props: any) => {
     <MapsWrapper>
       <Wrapper>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyDnDOX7aho2uKHmv9HQTu085LxJ76Wt9FE" }}
+          bootstrapURLKeys={{ key: "" }}
           defaultCenter={center}
           defaultZoom={zoom}
         >
